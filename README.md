@@ -20,6 +20,9 @@ $ git clone https://github.com/okfn-brasil/notebooks.git
 
 Alternativelly you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP". 
 
+### To download the datasets
+
+We use serenata toolbox to download or generate the datasets. To install and use the toolbox just checkout the [toolbox's guide](https://github.com/okfn-brasil/serenata-toolbox#serenata-de-amor-toolbox).
 
 ### To collaborate
 
