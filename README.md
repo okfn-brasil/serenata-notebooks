@@ -4,9 +4,9 @@
 
 [Operação Serenata de Amor](https://github.com/okfn-brasil/serenata-de-amor) has been acknowledged as a great AI project in Brazil and other countries. It has become not only a project to audit public expenses but also a space of sharing and collaboration. During its history, Serenata has had many people devoted to exploring its datasets through experimental notebooks which could possibly become a [Rosie](https://github.com/okfn-brasil/serenata-de-amor/blob/master/rosie/README.md)'s classifier.
 
-These notebooks from multiple authors are rich assets from which people can learn aabout data science, Python third-party libraries and core functions, as well as gather ideas for their own investigations.
+These notebooks from multiple authors are rich assets from which people can learn about data science, Python third-party libraries and core functions, as well as gather ideas for their own investigations.
 
-Notebooks have been removed from the main repo, but with this exploratory and educative minset, the team republishes the notebooks in this repo, also re-opening the space for collaboration and learning. Make yourself at home, you can read notebooks and share your own.
+Notebooks have been removed from the main repo, but with this exploratory and educative mindset, the team republishes the notebooks in this repo, also re-opening the space for collaboration and learning. Make yourself at home, you can read notebooks and share your own.
 
 ## How
 
