@@ -18,7 +18,7 @@ You can clone this repo by typing on your console:
 $ git clone https://github.com/okfn-brasil/notebooks.git
 ```
 
-Alternativelly you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP". 
+Alternatively you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP". 
 
 ### To download the datasets
 
