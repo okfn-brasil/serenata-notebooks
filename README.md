@@ -28,6 +28,8 @@ We use serenata toolbox to download or generate the datasets. To install and use
 
 Fork this repo and clone it. Then commit a new branch with your notebook and PR us. The files will be reviewed by [@jtemporal](https://github.com/jtemporal) and [@rodolfo-viana](https://github.com/rodolfo-viana).
 
+[If you are a newcomer or just confused about what to do, read `getting-started.md`.](https://github.com/okfn-brasil/notebooks/blob/master/getting-started.md)
+
 Please remember to export a `.py` and `.html` to facilitate the review process. There's a sample config file at `notebooks/jupyter_notebook_config.py` to make Jupyter export these files automatically.
 
 ## Reminder
