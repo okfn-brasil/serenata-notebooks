@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Notebooks from Operação Serenata de Amor](#notebooks-from-opera%C3%A7%C3%A3o-serenata-de-amor)
+  - [What](#what)
+  - [How](#how)
+    - [To read](#to-read)
+    - [To download the datasets](#to-download-the-datasets)
+    - [To collaborate](#to-collaborate)
+  - [Reminder](#reminder)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Notebooks from [Operação Serenata de Amor](https://github.com/okfn-brasil/serenata-de-amor)
 
 ## What

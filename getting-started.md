@@ -2,12 +2,21 @@
 
 There are six things a newcomer needs to get started:
 
-+ Python (3.6 or above)
-+ Jupyter Notebook
-+ Data science libraries
-+ `serenata-toolbox` library
-+ `git`
-+ a free or paid GitHub account
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Getting started](#getting-started)
+  - [Walkthrough](#walkthrough)
+    - [Python](#python)
+    - [Jupyter](#jupyter)
+    - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
+    - [Data science libraries](#data-science-libraries)
+    - [`serenata-toolbox` library](#serenata-toolbox-library)
+    - [`git`](#git)
+    - [A free or paid GitHub account](#a-free-or-paid-github-account)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 We will help you get things ready to go.
 
@@ -63,6 +72,17 @@ $ jupyter notebook
 **Do not close the Terminal/Command Prompt window while using Jupyter Notebook. Keep it open and running all the time or it will finish Jupyter Notebook.** When you are done with your work on Jupyter Notebook, save it (with `.ipynb` by the end of the file name), close the browser tab, go to the Terminal/Command Prompt window and hit `Cmd+C` (MacOS and Linux) or `Ctrl+C` (Windows).
 
 Jupyter Notebook is well documented here: [https://jupyter.readthedocs.io/en/latest/index.html](https://jupyter.readthedocs.io/en/latest/index.html). But if you still struggle to get it running, [drop a message](https://github.com/okfn-brasil/notebooks/issues/new) and we will help you.
+
+### To run Jupyter using Docker
+
+Download the datasets using serenata's toolbox into the `data/` folder, then run the following:
+
+```console
+docker pull okbr/serenata-notebooks
+docker run --rm -i -t -p 8888:8888 -v "$PWD/data":/notebooks/data  serenata-notebooks /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
+```
+
+After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
 
 ### Data science libraries
 
