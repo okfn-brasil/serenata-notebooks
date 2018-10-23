@@ -6,15 +6,15 @@ There are six things a newcomer needs to get started:
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Getting started](#getting-started)
-  - [Walkthrough](#walkthrough)
-    - [Python](#python)
-    - [Jupyter](#jupyter)
-    - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
-    - [Data science libraries](#data-science-libraries)
-    - [`serenata-toolbox` library](#serenata-toolbox-library)
-    - [`git`](#git)
-    - [A free or paid GitHub account](#a-free-or-paid-github-account)
+- [Walkthrough](#walkthrough)
+  - [Python](#python)
+  - [Jupyter](#jupyter)
+  - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
+  - [To run Jupyter with one click](#to-run-jupyter-with-one-click)
+  - [Data science libraries](#data-science-libraries)
+  - [`serenata-toolbox` library](#serenata-toolbox-library)
+  - [`git`](#git)
+  - [A free or paid GitHub account](#a-free-or-paid-github-account)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -83,6 +83,12 @@ docker run --rm -i -t -p 8888:8888 -v "$PWD/data":/notebooks/data  serenata-note
 ```
 
 After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
+
+### To run Jupyter with one click
+
+You could start a new Jupyter instance with one click using [binder](https://mybinder.org).
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks)
 
 ### Data science libraries
 

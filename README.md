@@ -14,6 +14,8 @@
 
 # Notebooks from [Operação Serenata de Amor](https://github.com/okfn-brasil/serenata-de-amor)
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks)
+
 ## What
 
 [Operação Serenata de Amor](https://github.com/okfn-brasil/serenata-de-amor) has been acknowledged as a great AI project in Brazil and other countries. It has become not only a project to audit public expenses but also a space of sharing and collaboration. During its history, Serenata has had many people devoted to exploring its datasets through experimental notebooks which could possibly become a [Rosie](https://github.com/okfn-brasil/serenata-de-amor/blob/master/rosie/README.md)'s classifier.
@@ -26,13 +28,15 @@ Notebooks have been removed from the main repo, but with this exploratory and ed
 
 ### To read
 
-You can clone this repo by typing on your console:
+* You can clone this repo by typing on your console:
 
 ```
 $ git clone https://github.com/okfn-brasil/notebooks.git
 ```
 
-Alternatively you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP".
+* Alternatively you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP".
+
+* Alternatively you can launch in [binder](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks).
 
 ### To download the datasets
 
