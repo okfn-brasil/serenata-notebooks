@@ -6,15 +6,15 @@ There are six things a newcomer needs to get started:
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Getting started](#getting-started)
-  - [Walkthrough](#walkthrough)
-    - [Python](#python)
-    - [Jupyter](#jupyter)
-    - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
-    - [Data science libraries](#data-science-libraries)
-    - [`serenata-toolbox` library](#serenata-toolbox-library)
-    - [`git`](#git)
-    - [A free or paid GitHub account](#a-free-or-paid-github-account)
+- [Walkthrough](#walkthrough)
+  - [Python](#python)
+  - [Jupyter](#jupyter)
+  - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
+  - [To run Jupyter with one click](#to-run-jupyter-with-one-click)
+  - [Data science libraries](#data-science-libraries)
+  - [`serenata-toolbox` library](#serenata-toolbox-library)
+  - [`git`](#git)
+  - [A free or paid GitHub account](#a-free-or-paid-github-account)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -84,6 +84,12 @@ docker run --rm -i -t -p 8888:8888 -v "$PWD/data":/notebooks/data  serenata-note
 
 After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
 
+### To run Jupyter with one click
+
+You could start a new Jupyter instance with one click using [binder](https://mybinder.org).
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks)
+
 ### Data science libraries
 
 Python core functions are awesome but limited. To perform data analyses smoothly you need some third-party libraries specially developed for data science.
@@ -114,7 +120,7 @@ To install them, run:
 
 ### `git`
 
-`git` is a version-control system. In other words, it is the tool you need to share your work with us. 
+`git` is a version-control system. In other words, it is the tool you need to share your work with us.
 
 As this system allows its users to track changes in files, we use `git` to have multiple versions of the same file and "copy and paste" the pieces we want to keep on its final version.
 
@@ -126,7 +132,7 @@ To install `git`, go to [git-scm.com/downloads](https://git-scm.com/downloads) a
 
 At last, you need a GitHub account to share your work with us. Follow these steps:
 
-1. Go to [github.com](https://github.com/) and create am account. 
+1. Go to [github.com](https://github.com/) and create am account.
 2. Come to [Serenata's Notebook GitHub repository](https://github.com/okfn-brasil/notebooks) and click "Fork" on the top right of the page.
 3. Open your Terminal/Command Prompt.
 4. Choose a folder in your computer and run `mkdir notebooks`

@@ -1,8 +1,9 @@
+---
 language: python
 cache:
   pip: true
   directories:
-  - ./research/data
+    - ./research/data
 python: 3.6
 install:
   - ./setup
