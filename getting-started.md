@@ -114,7 +114,7 @@ To install them, run:
 
 ### `git`
 
-`git` is a version-control system. In other words, it is the tool you need to share your work with us. 
+`git` is a version-control system. In other words, it is the tool you need to share your work with us.
 
 As this system allows its users to track changes in files, we use `git` to have multiple versions of the same file and "copy and paste" the pieces we want to keep on its final version.
 
@@ -126,7 +126,7 @@ To install `git`, go to [git-scm.com/downloads](https://git-scm.com/downloads) a
 
 At last, you need a GitHub account to share your work with us. Follow these steps:
 
-1. Go to [github.com](https://github.com/) and create am account. 
+1. Go to [github.com](https://github.com/) and create am account.
 2. Come to [Serenata's Notebook GitHub repository](https://github.com/okfn-brasil/notebooks) and click "Fork" on the top right of the page.
 3. Open your Terminal/Command Prompt.
 4. Choose a folder in your computer and run `mkdir notebooks`

@@ -23,10 +23,11 @@ if 'USE_HTTPS' in os.environ:
         dir_name = os.path.dirname(PEM_FILE)
         try:
             os.makedirs(dir_name)
-        except OSError as exc: # Python >2.5
+        except OSError as exc:  # Python >2.5
             if exc.errno == errno.EEXIST and os.path.isdir(dir_name):
                 pass
-            else: raise
+            else:
+                raise
         # Generate a certificate if one doesn't exist on disk
         subprocess.check_call(['openssl', 'req', '-new',
             '-newkey', 'rsa:2048', '-days', '365', '-nodes', '-x509',
@@ -36,16 +37,20 @@ if 'USE_HTTPS' in os.environ:
         os.chmod(PEM_FILE, stat.S_IRUSR | stat.S_IWUSR)
     c.NotebookApp.certfile = PEM_FILE
 
-# Disable authentication altogether, NOT RECOMMENDED FOR PRODUCTION ENVIRONMENTS
+# Disable authentication altogether, NOT RECOMMENDED FOR PRODUCTION
+# ENVIRONMENTS
 c.NotebookApp.token = ''
 
-### If you want to auto-save .html and .py versions of your notebook:
+
+# If you want to auto-save .html and .py versions of your notebook:
 # modified from: https://github.com/ipython/ipython/issues/8009
 def post_save(model, os_path, contents_manager):
     """post-save hook for converting notebooks to .py scripts"""
     if model['type'] != 'notebook':
-        return # only do this for notebooks
+        return  # only do this for notebooks
     d, fname = os.path.split(os_path)
     check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
     check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+
+
 c.FileContentsManager.post_save_hook = post_save
