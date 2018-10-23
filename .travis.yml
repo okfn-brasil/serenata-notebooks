@@ -2,8 +2,8 @@ language: python
 cache:
   pip: true
   directories:
-  - ./research/data
+  - ./data
 python: 3.6
 install:
-  - ./setup
-script: python -m unittest discover research/test
+  - pip install -r requirements.txt
+script: python -m unittest discover notebooks/test
