@@ -38,6 +38,10 @@ $ git clone https://github.com/okfn-brasil/notebooks.git
 
 * Alternatively you can launch in [binder](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks).
 
+* Alternatively you can visualize the notebooks in `read only` mode using a public version of nbviewer:
+
+	https://nbviewer.jupyter.org/github/okfn-brasil/notebooks/tree/master/
+
 ### To download the datasets
 
 We use serenata toolbox to download or generate the datasets. To install and use the toolbox just checkout the [toolbox's guide](https://github.com/okfn-brasil/serenata-toolbox#serenata-de-amor-toolbox).
