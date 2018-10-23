@@ -36,12 +36,10 @@ $ git clone https://github.com/okfn-brasil/notebooks.git
 
 * Alternatively you can download all the notebooks clicking the green "Clone or download" button on your right and choosing "Download ZIP".
 
-* Alternatively you can launch in [binder](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks).
+* Alternatively you can [launch in binder](https://mybinder.org/v2/gh/okfn-brasil/notebooks/master?filepath=notebooks).
 > This provides a simple and disposable environment to run and visualize notebooks. Don't use that as your development environment and definitely don't add your credentials on this environment.
 
-* Alternatively you can visualize the notebooks in `read only` mode using a public version of nbviewer:
-
-  https://nbviewer.jupyter.org/github/okfn-brasil/notebooks/tree/master/
+* Alternatively you can visualize the notebooks in `read only` mode [using a public version of nbviewer](https://nbviewer.jupyter.org/github/okfn-brasil/notebooks/tree/master/)
 
 ### To download the datasets
 
