@@ -101,6 +101,28 @@ Jupyter Notebook is well documented here: [https://jupyter.readthedocs.io/en/lat
 
 * After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
 
+### To run Jupyter using Docker Compose
+
+* Download the datasets using [serenata's toolbox](#serenata-toolbox-library) into the `data/` folder,
+
+* Install [docker-compose](https://docs.docker.com/compose/install/)
+
+* Then run jupyter with the following:
+
+  ```console
+  git clone https://github.com/okfn-brasil/notebooks.git
+  ```
+  ```console
+  cd notebooks
+  docker-compose up -d
+  ```
+
+* Get the jupyter token with:
+
+  ```console
+  docker-compose logs
+  ```
+
 ### To run Jupyter with one click
 
 You could start a new Jupyter instance with one click using [binder](https://mybinder.org).
