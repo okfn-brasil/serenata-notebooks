@@ -8,9 +8,7 @@ There are six things a newcomer needs to get started:
 
 - [Walkthrough](#walkthrough)
   - [Python](#python)
-  - [Jupyter](#jupyter)
-  - [To run Jupyter using Docker](#to-run-jupyter-using-docker)
-  - [To run Jupyter with one click](#to-run-jupyter-with-one-click)
+  - [Jupyter](#jupyter) or [Jupyter using Docker](#to-run-jupyter-using-docker) or [Jupyter with one click](#to-run-jupyter-with-one-click)
   - [Data science libraries](#data-science-libraries)
   - [`serenata-toolbox` library](#serenata-toolbox-library)
   - [`git`](#git)
