@@ -53,7 +53,7 @@ We use serenata toolbox to download or generate the datasets. To install and use
 [Docker Compose](https://docs.docker.com/compose/install/)
 [Dockerhub](https://hub.docker.com/), To create the dockerhub account to store the image
 
-<Note: Considering the dockerhub user name as  okbr, replace the dockerhub user name accordingly>
+> Note: Considering the dockerhub user name as  okbr, replace the dockerhub user name accordingly
 
 #### Prepare Docker Images
 
@@ -71,7 +71,7 @@ As we create the docker image, it will be stored in local docker images cache
 docker tag notebooks notebooks:1.0
 ```
 
-<NOTE: By default when we create the docker image its default tag is latest. 0.1 is the version for current release>
+> NOTE: By default when we create the docker image its default tag is latest. 0.1 is the version for current release
 
 - Push docker image to dockerhub
 
@@ -101,7 +101,7 @@ docker tag okbr/notebooks:0.1 notebooks
 docker-compose up -d
 ```
 
-<NOTE: Expected to have docker-compose file in the directory where we run above command>
+> NOTE: Expected to have docker-compose file in the directory where we run above command
 
 ### To collaborate
 
