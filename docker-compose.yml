@@ -4,7 +4,7 @@ version: '3.5'
 services:
   okbr-serenata-notebooks:
     container_name: okbr-serenata-notebooks
-    build: .
+    image: okbr/serenata-notebooks
     networks:
       - frontend
     ports:
