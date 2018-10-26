@@ -8,7 +8,10 @@ There are six things a newcomer needs to get started:
 
 - [Walkthrough](#walkthrough)
   - [Python](#python)
-  - [Jupyter](#jupyter) or [Jupyter using Docker](#to-run-jupyter-using-docker) or [Jupyter with one click](#to-run-jupyter-with-one-click)
+  - [Jupyter](#jupyter)
+    - [Pure Jupyter](#pure-jupyter)
+    - [Jupyter using Docker](#jupyter-using-docker)
+    - [Jupyter with binder](#jupyter-with-binder)
   - [Data science libraries](#data-science-libraries)
   - [`serenata-toolbox` library](#serenata-toolbox-library)
   - [`git`](#git)
@@ -38,6 +41,10 @@ Either way, we will need to install Python 3.6 or above to work with the scripts
 If you find any problem during the installation process, just [write a message](https://github.com/okfn-brasil/notebooks/issues/new) and we will try to assist you.
 
 ### Jupyter
+
+Choose one of the three methods below:
+
+#### Pure Jupyter
 
 Python comes with `pip`, a package management system we use a lot when we need to download and install Python libraries and other packages.
 
@@ -71,18 +78,18 @@ $ jupyter notebook
 
 Jupyter Notebook is well documented here: [https://jupyter.readthedocs.io/en/latest/index.html](https://jupyter.readthedocs.io/en/latest/index.html). But if you still struggle to get it running, [drop a message](https://github.com/okfn-brasil/notebooks/issues/new) and we will help you.
 
-### To run Jupyter using Docker
+#### Jupyter using Docker
 
 Download the datasets using serenata's toolbox into the `data/` folder, then run the following:
 
-```console
+```
 docker pull okbr/serenata-notebooks
 docker run --rm -i -t -p 8888:8888 -v "$PWD/data":/notebooks/data  serenata-notebooks /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
 ```
 
 After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
 
-### To run Jupyter with one click
+#### Jupyter with binder
 
 You could start a new Jupyter instance with one click using [binder](https://mybinder.org).
 
