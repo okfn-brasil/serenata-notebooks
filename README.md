@@ -45,6 +45,56 @@ $ git clone https://github.com/okfn-brasil/notebooks.git
 
 We use serenata toolbox to download or generate the datasets. To install and use the toolbox just checkout the [toolbox's guide](https://github.com/okfn-brasil/serenata-toolbox#serenata-de-amor-toolbox).
 
+### Deploy in production with docker
+
+#### Prepare Docker Images
+
+- Create the docker images
+
+```bash
+docker build -t notebooks .
+```
+
+As we create the docker image, it will be stored in local docker images cache
+
+- Tag the image to maintain th version of the docker image
+
+```bash
+docker tag notebooks notebooks:1.0
+```
+
+*NOTE: By default when we create the docker image its default tag is latest. 0.1 is the version for current release*
+
+- Push docker image to dockerhub
+
+```bash
+# Syntax
+docker tag notebooks DOCKERHUB_USER_NAME/notebooks:VERSION
+
+# Example
+docker tag notebooks okbr/notebooks:0.1
+
+docker login
+
+docker push okbr/notebooks:0.1
+```
+
+Now image is ready to deploy on any cloud with the `docker-compose.yml`
+
+#### Deploy on any machine
+
+```bash
+docker login
+
+docker pull okbr/notebooks:0.1
+
+docker tag okbr/notebooks:0.1 notebooks
+
+docker-compose up -d
+```
+
+*NOTE: Expected to have docker-compose file in the directory where we run above command*
+
 ### To collaborate
 
 Fork this repo and clone it. Then commit a new branch with your notebook and PR us. The files will be reviewed by [@jtemporal](https://github.com/jtemporal) and [@rodolfo-viana](https://github.com/rodolfo-viana).

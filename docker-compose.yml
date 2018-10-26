@@ -4,13 +4,12 @@ version: '3.5'
 services:
   okbr-serenata-notebooks:
     container_name: okbr-serenata-notebooks
-    build: .
+    image: notebooks
     networks:
       - frontend
     ports:
       - "8888:8888"
     volumes:
-      - ./notebooks:/notebooks
       - ./data:/notebooks/data
     command:
       - "jupyter"
