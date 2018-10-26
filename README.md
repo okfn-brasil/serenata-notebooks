@@ -47,6 +47,14 @@ We use serenata toolbox to download or generate the datasets. To install and use
 
 ### Deploy in production with docker
 
+#### Prerequisites
+
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+[Docker Compose](https://docs.docker.com/compose/install/)
+[Dockerhub](https://hub.docker.com/), To create the dockerhub account to store the image
+
+<Note: Considering the dockerhub user name as  okbr, replace the dockerhub user name accordingly>
+
 #### Prepare Docker Images
 
 - Create the docker images
@@ -63,18 +71,18 @@ As we create the docker image, it will be stored in local docker images cache
 docker tag notebooks notebooks:1.0
 ```
 
-*NOTE: By default when we create the docker image its default tag is latest. 0.1 is the version for current release*
+<NOTE: By default when we create the docker image its default tag is latest. 0.1 is the version for current release>
 
 - Push docker image to dockerhub
 
 ```bash
 # Syntax
-docker tag notebooks DOCKERHUB_USER_NAME/notebooks:VERSION
+docker tag notebooks:1.0 DOCKERHUB_USER_NAME/notebooks:VERSION
 
 # Example
-docker tag notebooks okbr/notebooks:0.1
+docker tag notebooks:1.0 okbr/notebooks:0.1
 
-docker login
+docker login # Enter the dockerhub credentials
 
 docker push okbr/notebooks:0.1
 ```
@@ -84,7 +92,7 @@ Now image is ready to deploy on any cloud with the `docker-compose.yml`
 #### Deploy on any machine
 
 ```bash
-docker login
+docker login # Enter the dockerhub credentials
 
 docker pull okbr/notebooks:0.1
 
@@ -93,7 +101,7 @@ docker tag okbr/notebooks:0.1 notebooks
 docker-compose up -d
 ```
 
-*NOTE: Expected to have docker-compose file in the directory where we run above command*
+<NOTE: Expected to have docker-compose file in the directory where we run above command>
 
 ### To collaborate
 
