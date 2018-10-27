@@ -83,7 +83,11 @@ Jupyter Notebook is well documented here: [https://jupyter.readthedocs.io/en/lat
   docker pull okbr/serenata-notebooks
   ```
   ```console
-  docker run --rm -i -t -p 8888:8888 -v "$PWD/notebooks":/notebooks -v "$PWD/data":/notebooks/data  okbr/serenata-notebooks  /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
+  docker run --rm -i -t -p 8888:8888 \
+      -v "$PWD/notebooks":/notebooks \
+      -v "$PWD/data":/notebooks/data \
+      okbr/serenata-notebooks \
+      /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
   ```
 
 * Or build you own image with the following:
@@ -96,7 +100,11 @@ Jupyter Notebook is well documented here: [https://jupyter.readthedocs.io/en/lat
   docker build -t okbr/serenata-notebooks .
   ```
   ```console
-  docker run --rm -i -t -p 8888:8888 -v "$PWD/notebooks":/notebooks -v "$PWD/data":/notebooks/data  okbr/serenata-notebooks  /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
+  docker run --rm -i -t -p 8888:8888 \
+      -v "$PWD/notebooks":/notebooks \
+      -v "$PWD/data":/notebooks/data \
+      okbr/serenata-notebooks \
+      /bin/bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
   ```
 
 * After that, open up your browser and access `http://localhost:8888` to interact with the notebooks here.
