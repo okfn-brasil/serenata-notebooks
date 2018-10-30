@@ -24,17 +24,16 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY data/ notebooks/ .git/ .gitignore .gitattributes \
-  getting-started.md requirements.txt LICENSE README.md ${HOME}/
-
-COPY jupyter_notebook_config.py ${HOME}/.jupyter/jupyter_notebook_config.py
+COPY requirements.txt ${HOME}/
 
 RUN pip install --upgrade pip && \
+      pip install -r ${HOME}/requirements.txt && \
       conda update setuptools && \
-      conda install jupyter notebook scikit-learn && \
-      conda install --yes --file ${HOME}/requirements.txt
+      conda install jupyter notebook scikit-learn
 
-RUN chown -R ${NB_UID} ${HOME}
+COPY . ${HOME}/
+
+RUN chown -R ${NB_UID} ${HOME} /opt/conda/
 
 USER ${NB_USER}
 
