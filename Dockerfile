@@ -44,4 +44,8 @@ RUN chown -R ${NB_UID}:${NB_UID} ${HOME}
 
 USER ${NB_USER}
 
+EXPOSE 8888
+
 WORKDIR ${HOME}
+
+CMD jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
