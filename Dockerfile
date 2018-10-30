@@ -1,10 +1,20 @@
-FROM continuumio/miniconda3
-MAINTAINER Serenata de Amor "datasciencebr@gmail.com"
+FROM continuumio/miniconda3:4.5.11
+LABEL maintainer="Serenata de Amor <datasciencebr@gmail.com>"
 
 USER root
 ARG AMAZON_BUCKET=serenata-de-amor-data
 ARG AMAZON_ENDPOINT=https://nyc3.digitaloceanspaces.com
 ARG AMAZON_REGION=nyc3
+
+ENV NB_USER jovyan
+ENV NB_UID 1000
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    --shell /bin/bash \
+    ${NB_USER}
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -15,17 +25,27 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
-RUN conda update setuptools
+RUN chown -R ${NB_UID} /opt/conda/
 
-RUN mkdir /.jupyter
-RUN mkdir /notebooks
+COPY requirements.txt ${HOME}/
 
-COPY ./jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
-COPY ./requirements.txt ./requirements.txt
-ADD ./notebooks /notebooks
+USER ${NB_USER}
 
-RUN conda install jupyter notebook scikit-learn
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && \
+      pip install -r ${HOME}/requirements.txt && \
+      conda update setuptools && \
+      conda install jupyter notebook scikit-learn
 
-WORKDIR /notebooks
+COPY . ${HOME}/
+
+USER root
+
+RUN chown -R ${NB_UID}:${NB_UID} ${HOME}
+
+USER ${NB_USER}
+
+EXPOSE 8888
+
+WORKDIR ${HOME}
+
+CMD jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser

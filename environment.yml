@@ -1,0 +1,29 @@
+name: okbr-serenata-notebooks
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.6
+  - aiofiles==0.3.2
+  - beautifulsoup4==4.6.0
+  - humanize==0.5.1
+  - igraph==0.1.11
+  - networkx==2.0
+  - nltk==3.2.5
+  - pandas>=0.18.1
+  - seaborn==0.8.1
+  - tqdm==4.19.5
+  - jupyter
+  - notebook
+  - scikit-learn
+  - pip:
+      - git+https://github.com/marcusrehm/neo4jupyter.git@master
+      - serenata-toolbox
+      - py2neo==3.1.2
+      - geopy==1.11.0
+      - grequests==0.3.0
+      - ipython-cypher==0.2.5
+      - ipython==6.2.1
+      - jgraph==0.2.1
+      - aiohttp==2.3.7
+      - pycpfcnpj==1.3
