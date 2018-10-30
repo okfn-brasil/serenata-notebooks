@@ -1,5 +1,5 @@
 FROM continuumio/miniconda3:4.5.11
-MAINTAINER Serenata de Amor "datasciencebr@gmail.com"
+LABEL maintainer="Serenata de Amor <datasciencebr@gmail.com>"
 
 USER root
 ARG AMAZON_BUCKET=serenata-de-amor-data
@@ -13,6 +13,7 @@ ENV HOME /home/${NB_USER}
 RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
+    --shell /bin/bash \
     ${NB_USER}
 
 RUN apt-get update \
@@ -24,7 +25,11 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+RUN chown -R ${NB_UID} /opt/conda/
+
 COPY requirements.txt ${HOME}/
+
+USER ${NB_USER}
 
 RUN pip install --upgrade pip && \
       pip install -r ${HOME}/requirements.txt && \
@@ -33,7 +38,9 @@ RUN pip install --upgrade pip && \
 
 COPY . ${HOME}/
 
-RUN chown -R ${NB_UID} ${HOME} /opt/conda/
+USER root
+
+RUN chown -R ${NB_UID}:${NB_UID} ${HOME}
 
 USER ${NB_USER}
 
