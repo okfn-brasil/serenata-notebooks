@@ -10,15 +10,14 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - ./notebooks:/notebooks
-      - ./data:/notebooks/data
+      - ./notebooks:/home/jovyan/notebooks
+      - ./notebooks/data:/home/jovyan/notebooks/data
     command:
       - "jupyter"
       - "notebook"
       - "--ip=0.0.0.0"
       - "--port=8888"
       - "--no-browser"
-      - "--allow-root"
 
 networks:
   frontend:
