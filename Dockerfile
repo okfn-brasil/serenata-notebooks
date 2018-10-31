@@ -1,5 +1,5 @@
 FROM continuumio/miniconda3:4.5.11
-LABEL maintainer="Serenata de Amor <datasciencebr@gmail.com>"
+LABEL maintainer="Serenata de Amor <contato@serenata.ai>"
 
 USER root
 ARG AMAZON_BUCKET=serenata-de-amor-data
