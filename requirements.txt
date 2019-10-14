@@ -21,3 +21,6 @@ jupyter
 jupyterlab
 scikit-learn
 tweepy==3.8.0
+bokeh
+plotly
+fbprophet
