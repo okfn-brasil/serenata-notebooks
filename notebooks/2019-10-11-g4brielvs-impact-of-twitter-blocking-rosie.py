@@ -12,7 +12,7 @@
 # >  1. `TWITTER_ACCESS_TOKEN_KEY`
 # >  1. `TWITTER_ACCESS_TOKEN_SECRET`
 
-# In[ ]:
+# In[1]:
 
 
 import os
@@ -25,11 +25,21 @@ import pandas as pd
 import pylab
 import tweepy
 
-
+get_ipython().run_line_magic('matplotlib', 'inline')
 pylab.rcParams['figure.figsize'] = (14, 8)
+
+from bokeh.plotting import figure, show, output_file, output_notebook
+from bokeh.models import SingleIntervalTicker, LinearAxis, Range1d, Span
+from bokeh.models.formatters import DatetimeTickFormatter
+from bokeh.palettes import Colorblind, Category10
+output_notebook()
+
+
+# In[2]:
+
+
 BLOCK_DATE = datetime(2019, 2, 18)  # approx. as Twitter hasn't disclosured it precisely
 ROSIE_FIRST_TWEET = 850769069473222656
-
 
 auth = tweepy.OAuthHandler(
     os.environ.get("TWITTER_CONSUMER_KEY"),
@@ -42,20 +52,10 @@ auth.set_access_token(
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
-# In[2]:
-
-
-from bokeh.plotting import figure, show, output_file, output_notebook
-from bokeh.models import SingleIntervalTicker, LinearAxis, Range1d, Span
-from bokeh.models.formatters import DatetimeTickFormatter
-from bokeh.palettes import Colorblind, Category10
-output_notebook()
-
-
 # 
-# ## Gettings all Rosie tweets
+# # Gettings all Rosie tweets
 
-# In[2]:
+# In[3]:
 
 
 attrs = (
@@ -80,28 +80,36 @@ def get_tweets(last_tweet=None):
         yield from get_tweets(tweet)
 
 
-# In[3]:
+# In[4]:
 
 
 all_tweets = pd.DataFrame(get_tweets())
+all_tweets['created_at'] = pd.to_datetime(all_tweets['created_at'])
+
 all_tweets.shape
+
+
+# In[5]:
+
+
+all_tweets.describe(include='all')
 
 
 # ## Engagement as favorites and RTs
 
 # We are going to consider a tweet's total of favorites and RTs as a proxy of its level of engagement.
 
-# In[4]:
+# In[6]:
 
 
-tweets = all_tweets[all_tweets['text'].str.startswith("🚨Gasto suspeito de")].copy()
+tweets = all_tweets[all_tweets['text'].str.startswith('🚨Gasto suspeito de')].copy()
 
-tweets["engagement"] = tweets['favorite_count'] + tweets['retweet_count']
+tweets['engagement'] = tweets['favorite_count'] + tweets['retweet_count']
 
 
 # We are not particularly interested in daily seasonality. In return, resampling should help the autoregressor (see below).
 
-# In[5]:
+# In[7]:
 
 
 # create time series
@@ -119,13 +127,13 @@ df = df.resample('D', label='left').agg(agg)
 df.columns = ['.'.join(col).strip() for col in df.columns.values]
 
 
-# In[52]:
+# In[8]:
 
 
 df['engagement.sum'].plot(title = 'Total of Fav+RT')
 
 
-# In[ ]:
+# In[9]:
 
 
 df['engagement.count'].plot(title = 'Total of tweets')
@@ -133,7 +141,7 @@ df['engagement.count'].plot(title = 'Total of tweets')
 
 # As we can see above, the number of tweets in time has changed drastically. We should take that into account in order to have a fair measure of engagement.
 
-# In[7]:
+# In[10]:
 
 
 df = df[df['engagement.count'] > 0]
@@ -143,12 +151,12 @@ df['retweet_count'] = df['retweet_count.sum']/df['engagement.count']
 df['engagement'] = df['engagement.sum']/df['engagement.count']
 
 
-# ## Engagement
+# # Engagement
 
-# In[28]:
+# In[11]:
 
 
-p = figure(title="Engagement", plot_width=700, plot_height=400)
+p = figure(title='Engagement', plot_width=700, plot_height=400)
 
 # Label Axes
 p.xaxis[0].axis_label = 'Date'
@@ -181,7 +189,7 @@ p.legend.click_policy = "hide"
 show(p) 
 
 
-# ## Time series analysis
+# # Time series analysis
 
 # We are going to use ARIMA. Facebook's [fbprophet](https://facebook.github.io/prophet/docs/quick_start.html) is a good implementation and automatically finds *(p,d,q)* parameters for us.
 
@@ -191,14 +199,14 @@ show(p)
 from fbprophet import Prophet
 
 
-# In[32]:
+# In[13]:
 
 
 # prepare working dataset to fit
 wdf = df.reset_index().rename({'created_at':'ds', 'engagement':'y'}, axis=1)
 
 
-# In[33]:
+# In[14]:
 
 
 m = Prophet(seasonality_mode='multiplicative', yearly_seasonality=False, daily_seasonality=False)
@@ -212,13 +220,13 @@ forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
 fig = m.plot(forecast)
 
 
-# In[35]:
+# In[15]:
 
 
 trend = m.plot_components(forecast)
 
 
-# In[36]:
+# In[16]:
 
 
 from fbprophet.plot import plot_plotly
@@ -229,9 +237,9 @@ fig = plot_plotly(m, forecast, trend=True, xlabel='Date', ylabel='Engagement (in
 py.iplot(fig)
 
 
-# ### After the block 
+# ## After the block 
 
-# In[47]:
+# In[17]:
 
 
 # prepare working dataset to fit
@@ -239,7 +247,7 @@ wdf = df[df.index >= BLOCK_DATE]
 wdf = wdf.reset_index().rename({'created_at':'ds', 'engagement':'y'}, axis=1)
 
 
-# In[48]:
+# In[18]:
 
 
 m = Prophet(seasonality_mode='multiplicative', yearly_seasonality=False, daily_seasonality=False)
@@ -253,7 +261,7 @@ forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
 fig = m.plot(forecast)
 
 
-# In[49]:
+# In[19]:
 
 
 trend = m.plot_components(forecast)
@@ -261,7 +269,7 @@ trend = m.plot_components(forecast)
 
 # Using plotly instead 
 
-# In[50]:
+# In[20]:
 
 
 from fbprophet.plot import plot_plotly
@@ -272,8 +280,14 @@ fig = plot_plotly(m, forecast, trend=True, xlabel='Date', ylabel='Engagement (in
 py.iplot(fig)
 
 
-# Despite significant gaps in the data, using an ARIMA model, numbers suggest that **the impact of Twitter's block has been negative** in terms of engagement with Rosie's tweets. 
+# # What can we say?
+
+# Despite significant gaps in the data, using an ARIMA model, the numbers suggest that **the impact of Twitter's block has been negative** in terms of engagement with Rosie's tweets. 
 # 
 # Note that the negative trend apparently started before and has been accentuated after the block. Considering recent data - where data points are more consistent - numbers gravitate clearly towards a negative trend. Between Fev/2019 and Apr/2019 - right after the block - the slope has higher negative value and continuously stabilizes, but in a negative trend. 
 
-# 
+# In[ ]:
+
+
+
+
